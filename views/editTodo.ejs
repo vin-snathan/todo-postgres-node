@@ -1,0 +1,22 @@
+<% include ./partials/header %>
+	<form class='edit-form' action="/todos/<%= foundTodo.id %>?_method=PUT" method='POST'>
+	<h3>Edit Todo Item</h3>
+	<hr/>
+		<div class="input-group mb-3">
+		  <input type="text" class="form-control" name='description' value="<%= foundTodo.description %>" aria-label="Todo description" aria-describedby="basic-addon2">
+
+		  <div class="input-group-append">
+		    <select class="custom-select" name='completed' id="completedStatus">
+			    <option value="<%= foundTodo.completed %>" selected><%= foundTodo.completed ? 'Complete' : 'Incomplete' %></option>
+			    <option value="<%= !foundTodo.completed %>"><%= !foundTodo.completed ? 'Complete' : 'Incomplete' %></option>
+			</select>
+		  </div>
+
+		  <div class="input-group-append">
+		    <button class="btn btn-outline-primary" type="submit">Edit Todo</button>
+		  </div>
+		</div>
+		<a href='/todos'>Back</a>
+	</form>
+
+<% include ./partials/footer %>

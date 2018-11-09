@@ -1,0 +1,98 @@
+.logout-button {
+	border: 0;
+	background: none;
+	cursor: pointer;
+}
+
+.credentials-form, .edit-form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+}
+
+.group-btn {
+	color: black;
+	border: 1px solid #a8a8a8;
+}
+
+.group-btn:hover {
+	background: #d9d9d9;
+	color: black;
+}
+
+.notFound-container {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid #999;
+	padding: 50px;
+	border-radius: 1%;
+}
+
+.todo-container {
+	margin: 100px auto;
+	width: 440px;
+	min-height: 200px;
+	border: 1px solid grey;
+	padding: 10px;
+	border-radius: 2%;
+	box-shadow: 1px 1px 9px 3px #999;
+}
+
+.todo-container h1 {
+	text-align: center;
+}
+
+.todo-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.todo-list-item {
+	display: flex;
+	flex-direction: row;
+	padding: 10px;
+	border-bottom: 1px solid #c9c9c9;
+}
+
+.todo-list-item:last-child {
+	margin-bottom: 10px;
+}
+
+.todo-list-item .todo-list-description {
+	flex: 1;
+}
+
+.strikethrough {
+	text-decoration: line-through #e74c3c wavy;
+}
+
+.todo-list-item div:nth-child(2) a, .todo-list-item div:nth-child(2) button {
+	color: #999;
+}
+
+.todo-list-item div:nth-child(2) button:hover {
+	color: red;
+}
+
+.todo-list-item div:nth-child(2) a:hover {
+	color: blue;
+}
+
+.btn-group {
+	margin: 0 auto;
+}
+
+.button-group-wrapper {
+	text-align: center;
+}
+
+.form-delete button {
+	background: none;
+	border: none;
+	color: red;
+	cursor: pointer;
+}

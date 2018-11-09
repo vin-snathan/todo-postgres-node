@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+
+	<form class='credentials-form' action='/users' method='POST'>
+	<h3>Register</h3>
+	<hr/>
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">Email address</label>
+	    <input type="email" class="form-control" name='email' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email address">
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Password</label>
+	    <input type="password" class="form-control" name='password' id="exampleInputPassword1" placeholder="Password">
+	    <small id="emailHelp" class="form-text text-muted">Password must be a minimum of 7 characters.</small>
+	  </div>
+	  <button type="submit" class="btn btn-default">Register</button>
+	<br/>
+	<br/>
+	  <p>Already a member? <a href='/'>Sign in!</a></p>
+	</form>
+
+<% include ./partials/footer %>

@@ -1,0 +1,74 @@
+<% include ./partials/header %>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class='container'>
+		  <a class="navbar-brand" href="#">To Do App</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav ml-auto">
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          I'm bored
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" target="_blank" href="https://www.youtube.com/user/TheEllenShow">Ellen</a>
+		          <a class="dropdown-item" target="_blank" href="https://www.youtube.com/watch?v=d7m6ivDvWNI">Tesla - Now You Know</a>
+		          <a class="dropdown-item" target="_blank" href="http://www.gnabagam.com/musicVideos">Gnabagam</a>
+		        </div>
+		      </li>
+		    </ul>
+		    <form class='form-inline my-2 my-lg-0' action="/users/login?_method=DELETE" method="POST">
+			  	<button type="submit" class="logout-button">Logout</button>
+			</form>
+		  </div>
+		 </div>
+	</nav>
+
+	<div class="todo-container">
+		<h1>List of To-Do's</h1>
+		<hr />
+		<form action='/todos' method='POST'>
+		  <label class="sr-only" for="todo-item">Name</label>
+		  <input type="text" class="form-control mb-2 mr-sm-2" id="todo-item" name='description' placeholder="Enter item here">
+		</form>
+
+		<div class='button-group-wrapper'>
+			<div class="btn-group" role="group" aria-label="Basic example">
+			  <a class='btn btn-default btn-sm group-btn' href='/todos'>All</a>
+			  <a class='btn btn-default btn-sm group-btn' href='/todos?value=complete'>Complete</a>
+			  <a class='btn btn-default btn-sm group-btn' href='/todos?value=incomplete'>Incomplete</a>
+			  <form action="/todos?_method=DELETE" method="POST">
+			  	<button type="submit" class="btn btn-danger btn-sm">Reset</a>
+			  </form>
+			</div>
+		</div>
+
+		<br/> 
+
+		<p style='text-align:center'><%= status %></p>
+
+		
+
+		<div class='todo-list'>
+			<% todos.forEach((item, idx) => { %>
+				<div class='todo-list-item'>
+					<div class='todo-list-description <%= item.completed ? "strikethrough" : "" %>'>
+						<%= idx + 1 %>. <%= item.description %>
+					</div>
+
+					<div>
+						<a class='pencil-icon' href='/todos/<%= item.id %>'><i class="fas fa-pencil-alt"></i></a>
+						<form class='form-delete' style='display:inline-block' action="/todos/<%= item.id %>?_method=DELETE" method="POST">
+				  			<button><i class="fas fa-trash-alt"></i></button>
+				  		</form>
+					</div>
+				</div>
+			<% }) %>
+		</div>
+
+	</div>
+
+<% include ./partials/footer %>
